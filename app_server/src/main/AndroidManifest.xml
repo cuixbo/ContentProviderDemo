@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="demo.cxb.com.app_server">
+
+    <permission
+        android:name="com.cxb.ipc.permission.READ_CONTENT"
+        android:label="Permission for read content provider"
+        android:protectionLevel="normal"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <provider
+            android:name=".IPCPersonProvider"
+            android:authorities="com.cxb.ipc"
+            android:grantUriPermissions="true"
+            android:readPermission="com.cxb.ipc.permission.READ_CONTENT"
+            android:exported="true"
+            android:process=":person_provider"/>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
